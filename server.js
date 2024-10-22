@@ -1,10 +1,10 @@
 // index.js
 const mongoose = require("mongoose");
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 require("dotenv").config();
 
-PORT = 3000;
+PORT = 5000;
 console.log("Puerto modificado probando git");
 
 const app = express();
@@ -14,7 +14,7 @@ const app = express();
 // 	optionsSuccessStatus: 200,
 // };
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 const rutasCursos = require("./routes/rutas-cursos");
