@@ -1,1 +1,5 @@
 Añadimos alguna cosita nueva
+TODO:
+    - Modificar modelos. Carlos lo hizo mal
+    - Modificar resto del backend. Culpa de Joseph
+    - Modificar proyecto entero. Culpa de los dos
