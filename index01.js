@@ -6,7 +6,7 @@ mongoose
 		'mongodb+srv://frandavila:cife1234@clusterio.3fznd.mongodb.net/academia?retryWrites=true&w=majority'
 	)
 	.then(() => {
-		console.log('Conexión con Atlas exitosa...');
+		console.log('💯Conexión con Atlas exitosa...');
 	})
 	.catch((error) => console.log(error));
 
