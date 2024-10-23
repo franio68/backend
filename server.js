@@ -20,7 +20,7 @@ app.use(express.json());
 const rutasCursos = require("./routes/rutas-cursos");
 app.use("/api/cursos", rutasCursos);
 
-const rutasDocentes = require("./routes/rutas-docentes-token");
+const rutasDocentes = require("./routes/rutas-docentes-no-auth");
 app.use("/api/docentes", rutasDocentes);
 
 app.use((req, res) => {
