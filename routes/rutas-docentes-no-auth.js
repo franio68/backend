@@ -207,49 +207,49 @@ router.delete("/:id", async (req, res, next) => {
 });
 
 // * Login de docentes
-// router.post('/login', async (req, res, next) => {
-// 	const { email, password } = req.body;
-// 	let docenteExiste;
-// 	try {
-// 		docenteExiste = await Docente.findOne({
-// 			// (1) Comprobación de email
-// 			email: email,
-// 		});
-// 	} catch (error) {
-// 		const err = new Error(
-// 			'No se ha podido realizar la operación. Pruebe más tarde'
-// 		);
-// 		err.code = 500;
-// 		return next(err);
-// 	}
+router.post("/login", async (req, res, next) => {
+  const { email, password } = req.body;
+  let docenteExiste;
+  try {
+    docenteExiste = await Docente.findOne({
+      // (1) Comprobación de email
+      email: email,
+    });
+  } catch (error) {
+    const err = new Error(
+      "No se ha podido realizar la operación. Pruebe más tarde"
+    );
+    err.code = 500;
+    return next(err);
+  }
 
-// 	if (!docenteExiste || docenteExiste.password !== password) {
-// 		const error = new Error(
-// 			'No se ha podido identificar al docente. Credenciales erróneos'
-// 		); // (2) El usuario no existe
-// 		error.code = 422; // 422: Datos de usuario inválidos
-// 		return next(error);
-// 	} else {
-// 		res.json({
-// 			mensaje: 'Docente logueado', // (3) El usuario existe
-// 		});
-// 	}
-// });
+  if (!docenteExiste || docenteExiste.password !== password) {
+    const error = new Error(
+      "No se ha podido identificar al docente. Credenciales erróneos"
+    ); // (2) El usuario no existe
+    error.code = 422; // 422: Datos de usuario inválidos
+    return next(error);
+  } else {
+    res.json({
+      mensaje: "Docente logueado", // (3) El usuario existe
+    });
+  }
+});
 
 // * Buscar un docente en función del parámetro de búsqueda
-// router.get('/buscar/:busca', async (req, res, next) => {
-// 	const search = req.params.busca;
-// 	let docentes;
-// 	try {
-// 		docentes = await Docente.find({
-// 			nombre: { $regex: search, $options: 'i' },
-// 		});
-// 	} catch (err) {
-// 		const error = new Error('Ha ocurrido un error en la recuperación de datos');
-// 		error.code = 500;
-// 		return next(error);
-// 	}
-// 	res.status(200).json({ mensaje: 'Docentes encontrados', docentes: docentes });
-// });
+router.get("/buscar/:busca", async (req, res, next) => {
+  const search = req.params.busca;
+  let docentes;
+  try {
+    docentes = await Docente.find({
+      nombre: { $regex: search, $options: "i" },
+    });
+  } catch (err) {
+    const error = new Error("Ha ocurrido un error en la recuperación de datos");
+    error.code = 500;
+    return next(error);
+  }
+  res.status(200).json({ mensaje: "Docentes encontrados", docentes: docentes });
+});
 
 module.exports = router;
